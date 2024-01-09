@@ -1,0 +1,270 @@
+<robot name="AMR">
+    <link name="base_footprint">
+    </link>
+
+     <link name="main_body_link">
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.0"/>
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+        <visual name="">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <cylinder radius="0.3815" length="0.487"/>
+            </geometry>
+            <material name="grey">
+                <color rgba="1.0 1.0 1.0 1.0"/>
+                <texture filename=""/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.0 0.0 0.0"/>
+            </geometry>
+        </collision>
+    </link>    
+
+    <joint name="joint_name" type="fixed">
+        <parent link="base_footprint"/>
+        <child link="main_body_link"/>
+        <origin xyz="0.0 0.0 0.293" rpy="0.0 0.0 0.0"/>
+    </joint>
+    
+    <link name="floor_main_body_link">
+    </link>
+
+    <joint name="main_body_to_floor_main_body" type="fixed">
+        <origin xyz="0.0 0.0 -0.173" rpy="0.0 0.0 0.0"/>
+        <parent link="main_body_link"/>
+        <child link="floor_main_body_link"/>
+        <axis xyz="0.0 0.0 0.0"/>
+        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+    </joint>
+   
+    <link name="wheel_front_left_link">
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.0"/>
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+        <visual name="">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <cylinder radius="0.127" length="0.095"/>
+            </geometry>
+            <material name="green">
+                <color rgba="0.0 1.0 0.0 1.0"/>
+                <texture filename=""/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.0 0.0 0.0"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="floor_main_body_to_front_left_wheel" type="continuous">
+        <parent link="floor_main_body_link"/>
+        <child link="wheel_front_left_link"/>
+        <axis xyz="0 0 -1"/>
+        <origin xyz="0.269 0.269 0" rpy="1.57 0 -0.785"/>
+    </joint>
+    
+    <link name="wheel_front_right_link">
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.0"/>
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+        <visual name="">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <cylinder radius="0.127" length="0.095"/>
+            </geometry>
+            <material name="green">
+                <color rgba="0.0 1.0 0.0 1.0"/>
+                <texture filename=""/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.0 0.0 0.0"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="floor_main_body_to_front_right_wheel" type="continuous">
+        <parent link="floor_main_body_link"/>
+        <child link="wheel_front_right_link"/>
+        <axis xyz="0 0 1"/>
+        <origin xyz="0.269 -0.269 0" rpy="1.57 0 0.785"/>
+    </joint>
+    
+    <link name="wheel_rear_right_link">
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.0"/>
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+        <visual name="">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <cylinder radius="0.127" length="0.095"/>
+            </geometry>
+            <material name="green">
+                <color rgba="0.0 1.0 0.0 1.0"/>
+                <texture filename=""/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.0 0.0 0.0"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="floor_main_body_to_rear_right_wheel" type="continuous">
+        <parent link="floor_main_body_link"/>
+        <child link="wheel_rear_right_link"/>
+        <axis xyz="0 0 1"/>
+        <origin xyz="-0.269 -0.269 0" rpy="1.57 0 -0.785"/>
+    </joint>
+
+    <link name="wheel_rear_left_link">
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.0"/>
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+        <visual name="">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <cylinder radius="0.127" length="0.095"/>
+            </geometry>
+            <material name="green">
+                <color rgba="0.0 1.0 0.0 1.0"/>
+                <texture filename=""/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.0 0.0 0.0"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="floor_main_body_to_rear_left_wheel" type="continuous">
+        <parent link="floor_main_body_link"/>
+        <child link="wheel_rear_left_link"/>
+        <axis xyz="0 0 1"/>
+        <origin xyz="-0.269 0.269 0" rpy="1.57 0 0.785"/>
+    </joint>
+
+    <link name="lidar_front_link">
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.0"/>
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+        <visual name="">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.10 0.10 0.12"/>
+            </geometry>
+            <material name="">
+                <color rgba="0.0 0.0 1.0 1.0"/>
+                <texture filename=""/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.0 0.0 0.0"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="main_body_to_lidar_front" type="fixed">
+        <parent link="main_body_link"/>
+        <child link="lidar_front_link"/>
+        <origin xyz="0.377 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    </joint>
+    
+    <link name="lidar_rear_link">
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.0"/>
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+        <visual name="">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.10 0.10 0.12"/>
+            </geometry>
+            <material name="">
+                <color rgba="0.0 0.0 1.0 1.0"/>
+                <texture filename=""/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.0 0.0 0.0"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="main_body_to_lidar_rear" type="fixed">
+        <parent link="main_body_link"/>
+        <child link="lidar_rear_link"/>
+        <origin xyz="-0.377 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    </joint>
+
+    <link name="ceiling_main_body_link">
+    </link>
+
+    <joint name="main_body_to_ceiling" type="fixed">
+        <parent link="main_body_link"/>
+        <child link="ceiling_main_body_link"/>
+        <origin xyz="0.0 0.0 0.248" rpy="0.0 0.0 0.0"/>
+    </joint>
+
+    <!-- Wrist -->
+    <link name="wrist_link">
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.0"/>
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+        <visual name="">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.1 0.1 0.5"/>
+            </geometry>
+            <material name="">
+                <color rgba="1.0 1.0 0.0 1.0"/>
+                <texture filename=""/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.0 0.0 0.0"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="ceiling_main_body_link_to_wrist_link" type="fixed">
+        <parent link="ceiling_main_body_link"/>
+        <child link="wrist_link"/>
+        <origin xyz="0.0 0.0 0.25" rpy="0.0 0.0 0.0"/>
+    </joint>
+
+</robot>
